@@ -21,197 +21,226 @@ export interface Milestone {
   year: string;
   title: string;
   organization: string;
-  type: 'experience' | 'education' | 'milestone';
+  type: 'experience' | 'education' | 'collegiate';
   description: string[];
   tags: string[];
 }
 
 export const projects: Project[] = [
   {
-    id: "aegis-ledger",
-    title: "Aegis Ledger",
-    tagline: "Distributed Double-Entry Ledger System",
-    category: "Distributed Systems & Ledger Tech",
-    problem: "Traditional databases fall short of guaranteeing strict ACID consistency, immutable auditing, and sub-millisecond write latency under highly concurrent loads (10k+ reqs/sec) during volatile market cycles.",
-    solution: "Designed and implemented a distributed ledger in Go that utilizes a custom Write-Ahead Log (WAL), memory-mapped SSTables, and a Raft consensus cluster to guarantee strict linearizability. Built read paths optimized with Bloom filters and high-performance in-memory caching.",
-    technologies: ["Go", "gRPC", "Raft", "Redis", "PostgreSQL", "Prometheus", "Docker"],
+    id: "corporate-finance-pipeline",
+    title: "AFD Finance Analytics Pipeline",
+    tagline: "Corporate Financial Analysis & Workflow Optimization",
+    category: "Financial Analysis & Automation",
+    problem: "Cross-departmental financial reporting and workflow audits at AFD Contract Furniture suffered from manual data ingestion bottlenecks, requiring approximately 15 man-hours of manual processing every month.",
+    solution: "Developed an automated ETL pipeline that aggregates general ledger balances, departments' cost allocations, and purchase logs into clean Excel analytics databases. Structured data-validation macros to identify variance outliers and reconciled discrepancies dynamically.",
+    technologies: ["Python", "SQL", "Microsoft Excel", "Google Suite", "Data Interpretation"],
     metrics: [
-      { label: "Throughput", value: "15,000+ tx/sec" },
-      { label: "p99 Write Latency", value: "1.2ms" },
-      { label: "Consistency SLA", value: "99.999%" },
-      { label: "Volume Simulated", value: "500M+ tx" }
+      { label: "Man-Hours Saved", value: "15 hours / mo" },
+      { label: "Data Integrity", value: "100% Reconciled" },
+      { label: "Process Efficiency", value: "+45% Faster" },
+      { label: "Audited Ledger Lines", value: "10,000+" }
     ],
     learnings: [
-      "Tuned Raft heartbeat and election timeouts to minimize leader election downtime in congested network topologies.",
-      "Optimized memory usage by utilizing flatbuffers instead of JSON/Protobuf for serialization on the write hot-path.",
-      "Implemented a lock-free double-entry validation engine preventing race conditions on concurrent balance transfers."
+      "Designed robust error-handling routines in Python to handle misaligned column fields and varied CSV formats across departmental reports.",
+      "Optimized data parsing functions by utilizing vectorized pandas operations rather than iterative row loops.",
+      "Shadowed senior-level finance executives to understand how key operating metrics (OpEx/CapEx) guide capital allocations."
     ],
     architectureDiagram: `
-+------------------+     gRPC     +----------------------+
-|  API Gateway /   |  --------->  |  Go Consensus Nodes  |
-|  Load Balancer   |              |  (Raft Leader/Follw) |
-+------------------+              +----------------------+
-                                             |
-                                             |  Replicate log & append
-                                             v
-+------------------+   Sync DB    +----------------------+
-| ClickHouse /     |  <---------  | Write-Ahead Log      |
-| PostgreSQL       |              | & LSM Memory Cache   |
-+------------------+              +----------------------+
++------------------+     Fetch Data     +---------------------+
+| Sales / Procurement|  ------------->  | Department Logs     |
+| Department Databases|                 | (CSV/XLSX Formats)  |
++------------------+                    +---------------------+
+                                                   |
+                                                   | Run Python ETL
+                                                   v
++------------------+     Generate       +---------------------+
+| Reconciled       |  <-------------    | Aggregator Script & |
+| Analytics Report |                    | Variance Auditer    |
++------------------+                    +---------------------+
     `,
-    githubUrl: "https://github.com/SalajPortfolio/aegis-ledger"
+    githubUrl: "https://github.com/SalajPortfolio/corporate-finance-pipeline"
   },
   {
-    id: "apex-risk-engine",
-    title: "Apex Risk Engine",
-    tagline: "Real-Time Portfolio Risk Modeling & VaR Engine",
-    category: "Quantitative Analytics",
-    problem: "Institutional portfolio managers need real-time calculations of Value-at-Risk (VaR), Greeks, and historical stress-tests on multi-asset portfolios containing derivative contracts. Existing batch engines run overnight, leaving traders exposed to intraday market shocks.",
-    solution: "Developed a distributed computation engine combining Rust (for low-level, multi-threaded Monte Carlo simulations) and Python (Black-Litterman models). Configured Apache Spark on AWS ECS to parallelize simulation pathways across 10,000+ asset scenarios.",
-    technologies: ["Rust", "Python", "Apache Spark", "AWS ECS", "ClickHouse", "Redis", "Docker"],
+    id: "vc-valuation-engine",
+    title: "Venture Capital Valuation Engine",
+    tagline: "Multi-Scenario DCF & Training Evaluation Engine",
+    category: "Investment Analysis & Modeling",
+    problem: "Analyzing prospective startup pitches and evaluating the ROI of educational training programs for the Rutgers Venture Capital Club was slow and lacked standardized financial sensitivity analytics.",
+    solution: "Built a modular financial modeling engine in Python to execute Discounted Cash Flow (DCF), comparable company analysis (Comps), and sensitivity calculations. Generated automated mock investment projections showing IRR and cash-on-cash multiples across different macro scenarios.",
+    technologies: ["Python", "NumPy", "Pandas", "Excel Modeling", "Financial Analytics"],
     metrics: [
-      { label: "Calculation Time", value: "3.8s" },
-      { label: "Assets Supported", value: "10,000+" },
-      { label: "Simulated Scenarios", value: "100,000" },
-      { label: "Latency Reduction", value: "99.1%" }
+      { label: "Pitches Evaluated", value: "20+ Mock Pitches" },
+      { label: "Computation Time", value: "<1.5 seconds" },
+      { label: "Scenarios Run", value: "50+ Multi-variate" },
+      { label: "Model Standardization", value: "100%" }
     ],
     learnings: [
-      "Leveraged Rust SIMD (Single Instruction, Multiple Data) intrinsics to execute matrix math directly on the CPU register level, obtaining a 4.5x speedup.",
-      "Implemented delta-gamma approximation methods for options positions to bypass full-pricing loops for rapid intraday updates.",
-      "Engineered an event-driven cache invalidation strategy using Redis Pub/Sub to trigger recalculations only on price feed changes."
+      "Implemented Monte Carlo simulation pathways in Python to forecast cash flows based on revenue growth rate probability distributions.",
+      "Structured interactive sensitivity matrices (Growth Rate vs. WACC) to assess valuation bounds.",
+      "Presented results directly to the investment committee, validating mock investment pitches with quantitative indicators."
     ],
     architectureDiagram: `
-+------------------+   Price Tick   +----------------------+
-| Market Data Feed |  ------------> | Redis Cache Layer    |
-+------------------+                +----------------------+
-                                               |  Trigger
-                                               v
-+------------------+   MapReduce    +----------------------+
-| AWS ECS Cluster  |  <-----------  | Rust Computation     |
-| (Spark Workers)  |                | Engine (Monte Carlo) |
-+------------------+                +----------------------+
++-------------------+   Input Variables   +-------------------+
+| Pitch Deck & Comps|  ---------------->  | Python Valuation  |
+| Operating Metrics |                     | Engine Core       |
++-------------------+                     +-------------------+
+                                                    |
+                                                    | Run DCF & Comps
+                                                    v
++-------------------+   Standard Report   +-------------------+
+| Committee Summary |  <----------------  | Sensitivity Table |
+| & Risk Evaluation |                     | & IRR Forecasts   |
++-------------------+                     +-------------------+
     `,
-    githubUrl: "https://github.com/SalajPortfolio/apex-risk-engine"
+    githubUrl: "https://github.com/SalajPortfolio/vc-valuation-engine"
   },
   {
-    id: "nexus-tick-pipeline",
-    title: "Nexus Tick Pipeline",
-    tagline: "Ultra-Low Latency Market Tick Aggregator",
-    category: "Data Engineering",
-    problem: "Ingesting, parsing, and persisting high-frequency multicast market data feeds (e.g., NASDAQ TotalView-ITCH) can easily result in packet drops and buffer overflows if the software cannot handle peak bursts of hundreds of thousands of events per second.",
-    solution: "Built a highly optimized tick processor in Java utilizing the LMAX Disruptor ring buffer to achieve lock-free inter-thread messaging. Implemented custom binary decoders for the ITCH protocol and buffered output to ClickHouse for analytical queries.",
-    technologies: ["Java", "LMAX Disruptor", "Apache Kafka", "ClickHouse", "Docker", "Grafana"],
+    id: "institutional-budget-forecaster",
+    title: "Event Operations & Budget System",
+    tagline: "Community Donations Management & Event Allocation",
+    category: "Financial & Logistics Operations",
+    problem: "Tracking incoming community donations, allocating budgets across multiple localized grassroots initiatives, and managing logistical expense streams lacked a unified data dashboard, introducing allocation delay.",
+    solution: "Designed a centralized financial tracking ledger and budget allocator in Google Sheets/Excel for ICNJ Community Center. Implemented strict double-entry checks, historical donation aggregation, and expense-categorization matrices for events.",
+    technologies: ["Excel", "Google Sheets", "Financial Reporting", "Data Analysis", "Logistics Planning"],
     metrics: [
-      { label: "Peak Ingestion Rate", value: "850,000 msg/s" },
-      { label: "Avg Processing Time", value: "4.2μs" },
-      { label: "Data Drop Rate", value: "0.000%" },
-      { label: "Storage Saved", value: "65%" }
+      { label: "Event Budget", value: "$25,000 managed" },
+      { label: "Funds Raised", value: "$2,500+ campaigns" },
+      { label: "Students Trained", value: "50+" },
+      { label: "Record Drift", value: "0.00% Zero-Error" }
     ],
     learnings: [
-      "Configured JVM Garbage Collection using ZGC (Z Garbage Collector) and pre-allocated object pools to ensure GC pauses remained under 1 millisecond.",
-      "Utilized off-heap memory storage for transient tick indexes to minimize garbage collector overhead.",
-      "Engineered a dynamic backpressure throttle using Kafka Consumer groups to handle downstream database writing bottlenecks."
+      "Managed the end-to-end financial budgeting, marketing coordination, and artist liaison logistics for a major $25k budget musical festival.",
+      "Optimized ticket sales tracking by integrating real-time database lookups with donation logs.",
+      "Designed and executed grassroots book-selling campaigns that leveraged predictive target metrics to maximize donation ratios."
     ],
     architectureDiagram: `
-+------------------+   UDP Multicast   +----------------------+
-| NASDAQ ITCH Feed |  -------------->  | Binary Decoder       |
-+------------------+                   | & Ring Buffer (LMAX) |
-                                       +----------------------+
-                                                  |
-                                                  |  Publish to stream
-                                                  v
-+------------------+     Persist       +----------------------+
-| ClickHouse Column|  <--------------  | Apache Kafka         |
-| Database         |                   | Broker Cluster       |
-+------------------+                   +----------------------+
++--------------------+   Donation logs   +--------------------+
+| Donation Inflow    |  ---------------> | Double-Entry       |
+| & Campaign Sales   |                   | Verification Sheet |
++--------------------+                   +--------------------+
+                                                   |
+                                                   | Allocate funds
+                                                   v
++--------------------+   Live Allocation +--------------------+
+| Grassroots Projects|  <--------------- | Event Budget Core  |
+| & Event Expenses   |                   | ($25k Event Cap)   |
++--------------------+                   +--------------------+
     `,
-    githubUrl: "https://github.com/SalajPortfolio/nexus-tick-pipeline"
+    githubUrl: "https://github.com/SalajPortfolio/event-budget-forecaster"
   },
   {
-    id: "quantum-execution",
-    title: "Quantum Execution",
-    tagline: "High-Frequency Order Matching Engine Simulator",
-    category: "Capital Markets Technology",
-    problem: "Testing algorithmic trading strategies in realistic conditions requires a matching engine that behaves identical to live exchange books, supporting price-time priority (FIFO) and high throughput with nanosecond-level accuracy.",
-    solution: "Created an exchange-grade matching engine in C++ featuring a double-sided limit order book (LOB) utilizing binary heaps and doubly linked lists. Integrated a FIX Protocol gateway (QuickFAST) to support standard industry order message routing.",
-    technologies: ["C++", "FIX Protocol", "React", "gRPC", "Docker", "WebSockets"],
+    id: "quantitative-asset-allocator",
+    title: "Quantitative Asset Allocator",
+    tagline: "Modern Portfolio Theory & Efficient Frontier Simulation",
+    category: "Data Science & Portfolio Optimization",
+    problem: "Constructing optimal investment strategies for equity research and wealth management requires analytical calculations of asset correlations, Sharpe ratios, and variance boundaries.",
+    solution: "Created an asset allocation simulator in Python that reads historical equity sector prices and calculates return covariances. Computes the Efficient Frontier and isolates optimal asset weight distributions to maximize Sharpe ratio under user constraints.",
+    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Data Science"],
     metrics: [
-      { label: "Order Matching", value: "800ns" },
-      { label: "LOB Depth Levels", value: "100+" },
-      { label: "FIX Throughput", value: "20,000 msg/s" },
-      { label: "Jitter Std Dev", value: "<150ns" }
+      { label: "Portfolios Simulated", value: "10,000+" },
+      { label: "Sectors Tested", value: "11 S&P Sectors" },
+      { label: "Optimization Target", value: "Max Sharpe Ratio" },
+      { label: "Run Latency", value: "120ms" }
     ],
     learnings: [
-      "Eliminated all dynamic heap allocations (new/malloc) in the order execution path by implementing custom block memory allocators.",
-      "Aligned critical order book structs to cache line boundaries (64 bytes) to avoid CPU cache thrashing.",
-      "Developed a custom WebSockets event broadcaster in Go that streams depth-of-book updates to front-end charts at 60fps."
+      "Mastered mathematical formulations of portfolio variance and covariance matrix estimation.",
+      "Analyzed historical market cycles to verify model reliability during period transitions (e.g. rate changes).",
+      "Drafted professional equity reports presenting sector allocation findings suitable for equity research guidelines."
     ],
     architectureDiagram: `
-+------------------+    FIX Message    +----------------------+
-| Algo Trading Bot |  -------------->  | QuickFAST FIX Gateway|
-+------------------+                   +----------------------+
-                                                  |
-                                                  |  Local Lock-free Queue
-                                                  v
-+------------------+    Push Updates   +----------------------+
-| WebSocket Stream |  <--------------  | C++ Matching Engine  |
-| Client Dashboard |                   | (FIFO Order Book)    |
-+------------------+                   +----------------------+
++---------------------+     Stock Tickers    +---------------------+
+| Historical Price    |  ----------------->  | Covariance Estimator|
+| Database (API)      |                      | & NumPy Matrix Math |
++---------------------+                      +---------------------+
+                                                        |
+                                                        | Optimize weights
+                                                        v
++---------------------+     Output Graph     +---------------------+
+| Portfolio Allocation|  <-----------------  | Efficient Frontier  |
+| Report & Sharpe VaR |                      | Simulation (10k)    |
++---------------------+                      +---------------------+
     `,
-    githubUrl: "https://github.com/SalajPortfolio/quantum-execution"
+    githubUrl: "https://github.com/SalajPortfolio/quantitative-asset-allocator"
   }
 ];
 
 export const milestones: Milestone[] = [
   {
     id: "m1",
-    year: "2024 - Present",
-    title: "Lead Software Engineer",
-    organization: "Apex Capital Systems (FinTech Solutions)",
+    year: "Jun 2025 - Aug 2025",
+    title: "Finance and IT Intern",
+    organization: "AFD Contract Furniture",
     type: "experience",
     description: [
-      "Direct a team of 4 engineers building low-latency trading APIs and distributed data pipelines for institutional market participants.",
-      "Led the migration of a legacy SQL double-entry ledger to a high-throughput Go microservices architecture, boosting transaction capacity by 200%.",
-      "Architected real-time risk checks and options margin validation engines handling $50M+ in daily transaction volume."
+      "Optimized a core financial analysis report by gathering and interpreting data, resulting in a documented process efficiency that saved approximately 15 man-hours every month.",
+      "Assisted in documenting and streamlining a finance related workflow across departments, supporting a major efficiency initiative.",
+      "Participated in internal professional development events and shadowed senior-level executives to strengthen professional exposure.",
+      "Supported the IT team with essential software installation, configuration, system monitoring, and hardware maintenance (routers, switches, servers) adhering to security protocols."
     ],
-    tags: ["Distributed Systems", "Go", "Kafka", "PostgreSQL", "Team Leadership"]
+    tags: ["Financial Analysis", "Python", "Process Optimization", "IT Systems", "Network Security"]
   },
   {
     id: "m2",
-    year: "2022 - 2024",
-    title: "Software Engineer II",
-    organization: "Stellar Asset Management (Capital Markets Group)",
+    year: "Jun 2019 - Present",
+    title: "Financial & Event Operations Coordinator",
+    organization: "ICNJ Community Center",
     type: "experience",
     description: [
-      "Developed and maintained low-latency order routing and market data ingestion systems (C++ and Java).",
-      "Collaborated with quantitative analysts to implement automated portfolio rebalancing and algorithmic hedging strategies.",
-      "Optimized Java data processing jobs, cutting memory overhead by 40% and eliminating tick processing latency spikes."
+      "Support institutional finance operations, including managing incoming community donations, developing budgets, and meticulous expense tracking.",
+      "Managed the financial and logistical planning for the annual Kirtan Love Fest, overseeing a $25,000 event budget and coordinating arrangements for Emmy-nominated musical talent.",
+      "Led a youth education initiative training 50+ students in classical Indian and French musical instruments.",
+      "Coordinated and executed book-selling campaigns and summer camp programs, raising over $2,500 for community fundraising efforts.",
+      "Managed A/V operations for live events and directed a drama troupe from inception to presentation."
     ],
-    tags: ["C++", "Java", "LMAX Disruptor", "FIX Protocol", "Performance Tuning"]
+    tags: ["Financial Budgeting", "Expense Tracking", "Logistics Coordination", "Project Management", "Youth Education"]
   },
   {
     id: "m3",
-    year: "2020 - 2022",
-    title: "M.S. in Computer Science (Financial Engineering Track)",
-    organization: "Carnegie Mellon University",
-    type: "education",
+    year: "Sept 2025 - Present",
+    title: "Finance Coordinator",
+    organization: "Rutgers Venture Capital Club",
+    type: "collegiate",
     description: [
-      "Specialized in high-performance computing, distributed databases, quantitative finance, and stochastic models.",
-      "Thesis: 'High-Throughput Order Matching Engines on Parallel CPU-GPU Architectures'.",
-      "Completed projects covering portfolio optimization algorithms, derivatives pricing (Black-Scholes/Monte Carlo), and time-series analysis."
+      "Provide financial analysis to the club's investment committee, evaluating the cost and projected return of various training programs and mock investment pitches.",
+      "Track and reconcile all financial transactions using Excel, maintaining accurate records for weekly and monthly reporting."
     ],
-    tags: ["Financial Engineering", "Distributed Systems", "Stochastic Calculus", "CUDA"]
+    tags: ["Venture Capital", "Financial Modeling", "Excel Analytics", "Pitch Valuation", "ROI Forecasting"]
   },
   {
     id: "m4",
-    year: "2016 - 2020",
-    title: "B.S. in Computer Science",
-    organization: "University of Illinois Urbana-Champaign",
+    year: "Sept 2025 - Present",
+    title: "Treasurer & Speaker",
+    organization: "Bhakti Club National Club at Rutgers",
+    type: "collegiate",
+    description: [
+      "Manage all club financials, including budgeting, expenditure processing, and securing external sponsorship funding.",
+      "Direct financial planning and marketing outreach for major campus events, ensuring optimal resource allocation and project execution.",
+      "Increase student engagement by developing and implementing targeted social media campaigns and promotional strategies."
+    ],
+    tags: ["Financial Planning", "Budget Allocation", "Marketing Analytics", "Sponsorship Acquisition", "Social Media Strategy"]
+  },
+  {
+    id: "m5",
+    year: "Graduation Expected 2027",
+    title: "B.A. in Economics & Data Science",
+    organization: "Rutgers University (Piscataway, NJ)",
     type: "education",
     description: [
-      "Graduated with Honors. Focused on Systems Programming, Operating Systems, Database Management Systems, and Networks.",
-      "Founded and led the university's Algorithmic Trading Society, conducting semester-long trading strategy coding competitions."
+      "Focusing on the intersection of micro/macroeconomic theory, market structures, and computational data science.",
+      "Relevant coursework: Econometrics, Data Interpretation, Marketing Analytics, Capital Allocations, Quantitative Financial Analysis."
     ],
-    tags: ["Systems Programming", "Algorithms", "C++", "Operating Systems"]
+    tags: ["Economics", "Data Science", "Econometrics", "Quantitative Analysis", "Financial Reporting"]
+  },
+  {
+    id: "m6",
+    year: "Completed",
+    title: "High School Diploma",
+    organization: "Bridgewater Raritan Regional High School",
+    type: "education",
+    description: [
+      "Graduated with a GPA of 3.5. Participated in academic clubs and student operations."
+    ],
+    tags: ["High School", "Bridgewater NJ", "GPA: 3.5"]
   }
 ];

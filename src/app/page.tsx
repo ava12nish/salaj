@@ -59,7 +59,7 @@ export default function Home() {
   }, []);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('salaj.kumbhare@outlook.com');
+    navigator.clipboard.writeText('salaj.kumbhare@gmail.com');
     setCopiedText(true);
     setTimeout(() => setCopiedText(false), 2000);
   };
@@ -78,18 +78,18 @@ export default function Home() {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-350">
               <span className="h-2 w-2 rounded-full bg-fintech-blue animate-pulse"></span>
-              <span>Available for Quant / Systems Engineering Roles</span>
+              <span>Wealth Management // Investment Banking // Equity Research</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Building Technology for <br />
+              Analyzing Economics and <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-fintech-blue-glow to-fintech-cyan">
-                Modern Finance.
+                Data Science.
               </span>
             </h1>
 
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed font-sans max-w-xl">
-              Software engineer specializing in high-throughput data architectures, distributed database integrity, and low-latency capital markets systems. Focused on building robust software infrastructure for enterprise financial platforms.
+              Highly analytical Economics and Data Science candidate at Rutgers University. Experienced in supporting corporate financial analysis, workflow process audits, and quantitative portfolio simulation modeling to guide data-driven decisions.
             </p>
 
             {/* CTAs */}
@@ -130,10 +130,10 @@ export default function Home() {
       <section className="border-y border-zinc-900 bg-zinc-950/40 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { value: '4+', label: 'Years Experience', desc: 'In low-latency systems' },
-            { value: '15k/s', label: 'Ledger Throughput', desc: 'Go consensus ledger' },
-            { value: '850k/s', label: 'Tick Ingestion Rate', desc: 'NASDAQ-ITCH feeds parsed' },
-            { value: '800ns', label: 'Execution Match Time', desc: 'C++ priority FIFO book' }
+            { value: '15 hrs', label: 'Monthly Process Savings', desc: 'Optimized AFD financial audit' },
+            { value: '$25k', label: 'Operations Budget', desc: 'ICNJ event allocation & metrics' },
+            { value: '3.5', label: 'Econ & Data Science GPA', desc: 'Rutgers collegiate coursework' },
+            { value: '10k+', label: 'Asset Simulations', desc: 'Modern portfolio risk parameters' }
           ].map((stat, idx) => (
             <div key={idx} className="border-l border-zinc-900 pl-6 first:border-none">
               <div className="text-3xl font-bold font-mono tracking-tight text-white">{stat.value}</div>
@@ -162,23 +162,23 @@ export default function Home() {
           {[
             {
               icon: <Cpu className="h-5 w-5 text-fintech-cyan" />,
-              title: "Technical Ability",
-              desc: "Deep knowledge of mechanical sympathy, memory structures, lock-free queues, cache line alignment in C++ and Java, and GC tuning."
+              title: "Data Science & Economics",
+              desc: "Deep core capability in econometric modeling, time-series forecasting, quantitative data analysis, and multivariate statistics."
             },
             {
               icon: <Database className="h-5 w-5 text-fintech-blue-glow" />,
-              title: "Scalable Data Pipelines",
-              desc: "Experienced with Kafka event brokers, high-volume columnar data indexing in ClickHouse, and AWS ECS cloud-scale orchestration."
+              title: "Corporate Audit & Finance",
+              desc: "Skilled in general ledger reconciliation, department budget tracking, and process improvement to eliminate workflow waste."
             },
             {
               icon: <Activity className="h-5 w-5 text-emerald-400" />,
-              title: "Financial Readiness",
-              desc: "Comprehensive understanding of double-entry accounts, order book mechanics, FIFO matching, risk modelling, and FIX messaging."
+              title: "Investment Acumen",
+              desc: "Actively evaluating startup investment pitches and return metrics (IRR/ROI) inside the Rutgers Venture Capital Club."
             },
             {
               icon: <Users className="h-5 w-5 text-fintech-rose" />,
-              title: "Leadership & Delivery",
-              desc: "Proven background leading engineering squads to scale APIs, maintaining high SLA requirements, and organizing codebase architecture."
+              title: "Logistics & Team Leadership",
+              desc: "Directing event budgets up to $25,000, leading youth education groups (50+ students), and managing cross-departmental operations."
             }
           ].map((pillar, idx) => (
             <div key={idx} className="border border-zinc-900 bg-zinc-950 p-6 rounded-xl hover:border-zinc-800 transition-all space-y-4">
@@ -203,7 +203,7 @@ export default function Home() {
               Featured Work
             </h2>
             <p className="text-xs text-zinc-400 font-mono">
-              Systems architecture case studies focused on performance, concurrency, and volume.
+              Quantitative modeling, corporate process optimizations, and financial analytics case studies.
             </p>
           </div>
           
@@ -231,18 +231,18 @@ export default function Home() {
             Who I Am
           </h2>
           <p className="text-xs text-zinc-400 font-mono">
-            A software engineer committed to rigorous software engineering and financial domain depth.
+            Economics and Data Science candidate at Rutgers University with hands-on finance operations experience.
           </p>
         </div>
 
         {/* Executive Bio */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-8 space-y-6 text-sm text-zinc-300 leading-relaxed font-sans">
+          <div className="lg:col-span-8 space-y-6 text-sm text-zinc-350 leading-relaxed font-sans">
             <p>
-              I am a software engineer focused on building robust, high-performance tech infrastructure for modern financial institutions. My work spans low-latency systems programming, high-throughput distributed ledger architecture, and real-time capital markets risk pipelines.
+              I am an Economics and Data Science candidate at Rutgers University with a rigorous, detail-oriented approach to financial analysis, process optimization, and database auditing. My experience bridges corporate reporting internships and large-scale event budget coordination.
             </p>
             <p>
-              My professional journey combines deep systems knowledge with rigorous financial engineering frameworks. I focus on developing clean, testable, and deterministic code that keeps transaction integrity, limits latency jitter, and operates continuously under demanding market conditions.
+              My professional and collegiate activities focus on translating multi-dimensional datasets into strategic financial decisions. From saving 15 manual man-hours monthly through reports automation to pitching investment cases and tracking expenditures, I thrive in analytical and collaborative environments.
             </p>
             
             {/* Core strengths lists */}
@@ -255,15 +255,15 @@ export default function Home() {
                 <ul className="mt-3 space-y-2 text-xs text-zinc-450 font-mono">
                   <li className="flex items-center gap-1.5">
                     <ChevronRight className="h-3.5 w-3.5 text-zinc-650" />
-                    Low-Latency Execution Systems
+                    Data Interpretation & Analysis
                   </li>
                   <li className="flex items-center gap-1.5">
                     <ChevronRight className="h-3.5 w-3.5 text-zinc-650" />
-                    Distributed Ledger Consensus
+                    Financial Reporting & Auditing
                   </li>
                   <li className="flex items-center gap-1.5">
                     <ChevronRight className="h-3.5 w-3.5 text-zinc-650" />
-                    High-Volume Tick Aggregators
+                    Marketing Analytics & Forecasting
                   </li>
                 </ul>
               </div>
@@ -271,20 +271,20 @@ export default function Home() {
               <div className="border border-zinc-900 bg-zinc-950 p-4 rounded-lg">
                 <h4 className="text-xs font-bold text-white font-mono uppercase tracking-wider flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-fintech-blue-glow"></span>
-                  Career Goals
+                  Career Focus
                 </h4>
                 <ul className="mt-3 space-y-2 text-xs text-zinc-450 font-mono">
                   <li className="flex items-center gap-1.5">
                     <ChevronRight className="h-3.5 w-3.5 text-zinc-650" />
-                    Scaling HFT Engine Matchers
+                    Wealth Management Advising
                   </li>
                   <li className="flex items-center gap-1.5">
                     <ChevronRight className="h-3.5 w-3.5 text-zinc-650" />
-                    Hardening Real-Time Risk APIs
+                    Investment Banking Analyst
                   </li>
                   <li className="flex items-center gap-1.5">
                     <ChevronRight className="h-3.5 w-3.5 text-zinc-650" />
-                    Deploying Zero-GC Java Pipelines
+                    Equity Research Associate
                   </li>
                 </ul>
               </div>
@@ -304,19 +304,19 @@ export default function Home() {
               </div>
               <div className="flex justify-between">
                 <span className="text-zinc-500">DISPATCH_LOC:</span>
-                <span className="text-zinc-200">NEW_YORK_EST</span>
+                <span className="text-zinc-200">NEW_JERSEY_EST</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-zinc-500">CLEARANCE:</span>
-                <span className="text-zinc-200">SECURE_LEVEL_1</span>
+                <span className="text-zinc-200">ECON_DS_RUTGERS</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-zinc-500">IP_PROTOCOL:</span>
-                <span className="text-zinc-200">FIX_4.4 / FAST</span>
+                <span className="text-zinc-500">TOOLS_STACK:</span>
+                <span className="text-zinc-200">PYTHON / EXCEL</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-zinc-500">CPU_AFFINITY:</span>
-                <span className="text-zinc-200">ISOLATED_CORES_8</span>
+                <span className="text-zinc-500">ORGANIZATION:</span>
+                <span className="text-zinc-200">RUTGERS_VC_CLUB</span>
               </div>
             </div>
 
@@ -341,28 +341,28 @@ export default function Home() {
             industry domains
           </span>
           <h2 className="text-2xl md:text-3xl font-extrabold text-white">
-            Financial Technology Focus Areas
+            Financial Industry Alignment
           </h2>
           <p className="text-xs text-zinc-400 font-mono max-w-md mx-auto">
-            Deep domain alignment with products built for capital markets and enterprise scale.
+            Focus areas matching institutional investments, corporate finance, and equity valuation.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              title: "Capital Markets Technology",
-              desc: "Integrating matching engine FIFO order books, processing FIX/FAST messaging standard protocols, and mapping low-latency routing.",
+              title: "Wealth Management",
+              desc: "Constructing risk-balanced portfolios using Modern Portfolio Theory (MPT), calculating asset covariances, and tailoring allocations for long-term yields.",
               icon: <Landmark className="h-5 w-5 text-fintech-cyan" />
             },
             {
-              title: "Distributed Ledger Architectures",
-              desc: "Building immutable transaction stores, scaling Raft/Paxos consensus clusters, and structuring transactional ledger validation engines.",
+              title: "Investment Banking",
+              desc: "Evaluating corporate pitches, building comparable company analysis, and applying DCF models to forecast capital return profiles.",
               icon: <Layers className="h-5 w-5 text-fintech-blue-glow" />
             },
             {
-              title: "Risk Engineering & Analytics",
-              desc: "Deploying high-speed Monte Carlo simulations, evaluating Value-at-Risk (VaR), and stress-testing derivatives portfolios intraday.",
+              title: "Equity Research",
+              desc: "Analyzing income statements, tracking macro economic indicators, and utilizing Python data visualization to identify equity trends.",
               icon: <BarChart3 className="h-5 w-5 text-emerald-400" />
             }
           ].map((domain, idx) => (
@@ -404,11 +404,11 @@ export default function Home() {
 
               <div className="space-y-4">
                 <a 
-                  href="mailto:salaj.kumbhare@outlook.com"
+                  href="mailto:salaj.kumbhare@gmail.com"
                   className="flex items-center gap-3 text-xs text-zinc-450 hover:text-zinc-200 transition-colors font-mono"
                 >
                   <Mail className="h-4 w-4 text-fintech-blue-glow" />
-                  <span>salaj.kumbhare@outlook.com</span>
+                  <span>salaj.kumbhare@gmail.com</span>
                 </a>
 
                 <a 
@@ -488,12 +488,12 @@ export default function Home() {
               <label htmlFor="role" className="block text-[10px] font-mono text-zinc-400 uppercase">Role Focus</label>
               <select
                 id="role"
-                className="mt-1 w-full bg-zinc-950 border border-zinc-850 focus:border-zinc-700 px-3 py-2 rounded text-xs text-zinc-400 placeholder-zinc-650 outline-none"
+                className="mt-1 w-full bg-zinc-950 border border-zinc-850 focus:border-zinc-700 px-3 py-2 rounded text-xs text-zinc-450 placeholder-zinc-650 outline-none"
               >
-                <option value="quant">Quantitative Developer (C++ / Go)</option>
-                <option value="systems">Systems Software Engineer (Low-Latency)</option>
-                <option value="data">Data Infrastructure Engineer (Kafka / ClickHouse)</option>
-                <option value="other">General Engineering Discussion</option>
+                <option value="wealth">Wealth Management</option>
+                <option value="ib">Investment Banking</option>
+                <option value="equity">Equity Research</option>
+                <option value="other">General Financial Discussion</option>
               </select>
             </div>
 

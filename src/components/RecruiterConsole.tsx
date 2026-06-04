@@ -67,17 +67,17 @@ export default function RecruiterConsole({ isOpen, onClose }: RecruiterConsolePr
       id: 'copy-email',
       category: 'Contact Info',
       title: 'Copy Email Address',
-      subtitle: 'salaj.kumbhare@outlook.com',
+      subtitle: 'salaj.kumbhare@gmail.com',
       icon: <Mail className="h-4 w-4 text-fintech-blue-glow" />,
-      action: () => copyToClipboard('salaj.kumbhare@outlook.com', 'Email address')
+      action: () => copyToClipboard('salaj.kumbhare@gmail.com', 'Email address')
     },
     {
       id: 'copy-phone',
       category: 'Contact Info',
       title: 'Copy Phone Number',
-      subtitle: '+1 (917) 555-0192',
+      subtitle: '(908) 304-2092',
       icon: <Phone className="h-4 w-4 text-zinc-400" />,
-      action: () => copyToClipboard('+19175550192', 'Phone number')
+      action: () => copyToClipboard('9083042092', 'Phone number')
     },
     {
       id: 'book-call',
@@ -90,26 +90,26 @@ export default function RecruiterConsole({ isOpen, onClose }: RecruiterConsolePr
       }
     },
     {
-      id: 'project-aegis',
+      id: 'project-afd',
       category: 'Portfolio Case Studies',
-      title: 'View Aegis Ledger Architecture',
-      subtitle: 'Distributed double-entry ledger in Go/Raft.',
+      title: 'View AFD Finance Pipeline Case Study',
+      subtitle: 'Corporate automation saving 15 hrs/month.',
       icon: <Code className="h-4 w-4 text-purple-400" />,
       action: () => jumpToSection('portfolio')
     },
     {
-      id: 'project-apex',
+      id: 'project-vc',
       category: 'Portfolio Case Studies',
-      title: 'View Apex Risk Engine Details',
-      subtitle: 'Rust/Spark real-time Monte Carlo VaR simulator.',
+      title: 'View VC Valuation Engine Details',
+      subtitle: 'Startup comparable & DCF model in Python.',
       icon: <Code className="h-4 w-4 text-rose-400" />,
       action: () => jumpToSection('portfolio')
     },
     {
-      id: 'project-nexus',
+      id: 'project-icnj',
       category: 'Portfolio Case Studies',
-      title: 'View Nexus Tick Pipeline Benchmarks',
-      subtitle: '850k msg/sec Java/Disruptor/ClickHouse pipeline.',
+      title: 'View ICNJ Budget System Ledger',
+      subtitle: 'Event logistics tracking with $25k event cap.',
       icon: <Code className="h-4 w-4 text-amber-400" />,
       action: () => jumpToSection('portfolio')
     },
