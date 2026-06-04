@@ -140,7 +140,7 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
                   <div>
                     <h4 className="text-xs font-mono tracking-widest text-zinc-400 uppercase flex items-center gap-1.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                      The Engineering Solution
+                      The Analytical Solution
                     </h4>
                     <p className="mt-2 text-sm text-zinc-300 leading-relaxed font-sans">
                       {project.solution}

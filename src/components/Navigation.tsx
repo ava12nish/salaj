@@ -69,7 +69,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
         <div className="flex items-center gap-2">
           <Terminal className="h-5 w-5 text-fintech-cyan" />
           <span className="font-mono text-sm font-semibold tracking-wider text-zinc-100 uppercase">
-            S.KUMBHARE <span className="text-zinc-600">//</span> <span className="text-zinc-500 font-normal">SYS.ENG</span>
+            S.KUMBHARE <span className="text-zinc-600">//</span> <span className="text-zinc-500 font-normal">ECON & DATA</span>
           </span>
           <span className="relative flex h-2 w-2 ml-1">
             <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${marketOpen ? 'bg-emerald-400' : 'bg-amber-400'}`}></span>
