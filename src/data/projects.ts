@@ -128,40 +128,6 @@ export const projects: Project[] = [
 +--------------------+                   +--------------------+
     `,
     githubUrl: "https://github.com/SalajPortfolio/event-budget-forecaster"
-  },
-  {
-    id: "quantitative-asset-allocator",
-    title: "Quantitative Asset Allocator",
-    tagline: "Modern Portfolio Theory & Efficient Frontier Simulation",
-    category: "Data Science & Portfolio Optimization",
-    problem: "Constructing optimal investment strategies for equity research and wealth management requires analytical calculations of asset correlations, Sharpe ratios, and variance boundaries.",
-    solution: "Created an asset allocation simulator in Python that reads historical equity sector prices and calculates return covariances. Computes the Efficient Frontier and isolates optimal asset weight distributions to maximize Sharpe ratio under user constraints.",
-    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Data Science"],
-    metrics: [
-      { label: "Portfolios Simulated", value: "10,000+" },
-      { label: "Sectors Tested", value: "11 S&P Sectors" },
-      { label: "Optimization Target", value: "Max Sharpe Ratio" },
-      { label: "Run Latency", value: "120ms" }
-    ],
-    learnings: [
-      "Mastered mathematical formulations of portfolio variance and covariance matrix estimation.",
-      "Analyzed historical market cycles to verify model reliability during period transitions (e.g. rate changes).",
-      "Drafted professional equity reports presenting sector allocation findings suitable for equity research guidelines."
-    ],
-    architectureDiagram: `
-+---------------------+     Stock Tickers    +---------------------+
-| Historical Price    |  ----------------->  | Covariance Estimator|
-| Database (API)      |                      | & NumPy Matrix Math |
-+---------------------+                      +---------------------+
-                                                        |
-                                                        | Optimize weights
-                                                        v
-+---------------------+     Output Graph     +---------------------+
-| Portfolio Allocation|  <-----------------  | Efficient Frontier  |
-| Report & Sharpe VaR |                      | Simulation (10k)    |
-+---------------------+                      +---------------------+
-    `,
-    githubUrl: "https://github.com/SalajPortfolio/quantitative-asset-allocator"
   }
 ];
 
@@ -223,7 +189,7 @@ export const milestones: Milestone[] = [
   {
     id: "m5",
     year: "Graduation Expected 2027",
-    title: "B.A. in Economics & Data Science",
+    title: "B.S. in Economics & Data Science",
     organization: "Rutgers University (Piscataway, NJ)",
     type: "education",
     description: [
@@ -239,8 +205,8 @@ export const milestones: Milestone[] = [
     organization: "Bridgewater Raritan Regional High School",
     type: "education",
     description: [
-      "Graduated with a GPA of 3.5. Participated in academic clubs and student operations."
+      "Graduated with a GPA of 3.7. Participated in academic clubs and student operations."
     ],
-    tags: ["High School", "Bridgewater NJ", "GPA: 3.5"]
+    tags: ["High School", "Bridgewater NJ", "GPA: 3.7"]
   }
 ];

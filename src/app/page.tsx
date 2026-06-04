@@ -132,8 +132,8 @@ export default function Home() {
           {[
             { value: '15 hrs', label: 'Monthly Process Savings', desc: 'Optimized AFD financial audit' },
             { value: '$25k', label: 'Operations Budget', desc: 'ICNJ event allocation & metrics' },
-            { value: '3.5', label: 'Econ & Data Science GPA', desc: 'Rutgers collegiate coursework' },
-            { value: '10k+', label: 'Asset Simulations', desc: 'Modern portfolio risk parameters' }
+            { value: '3.7', label: 'High School GPA', desc: 'Bridgewater Raritan Regional' },
+            { value: '50+', label: 'Students Mentored', desc: 'Classical musical instruments' }
           ].map((stat, idx) => (
             <div key={idx} className="border-l border-zinc-900 pl-6 first:border-none">
               <div className="text-3xl font-bold font-mono tracking-tight text-white">{stat.value}</div>

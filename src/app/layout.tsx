@@ -13,23 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Salaj Kumbhare | Systems Engineer & FinTech Architecture",
-  description: "Professional portfolio of Salaj Kumbhare, a Software Engineer specializing in low-latency systems, distributed database linearizability, and high-throughput financial data pipelines.",
+  title: "Salaj Kumbhare | Economics & Data Science | Wealth Management & Investment Banking",
+  description: "Professional portfolio of Salaj Kumbhare, an Economics and Data Science B.S. candidate at Rutgers University. Experienced in corporate financial reporting, workflow optimization, and quantitative analytics.",
   keywords: [
     "Salaj Kumbhare",
-    "Software Engineer",
-    "Financial Technology",
-    "FinTech",
-    "Software Developer",
-    "Data Engineering",
-    "Cloud Engineering",
-    "Low Latency",
-    "C++",
-    "Go",
-    "Java",
-    "Raft",
-    "LMAX Disruptor",
-    "Distributed Systems"
+    "Economics",
+    "Data Science",
+    "Rutgers",
+    "Wealth Management",
+    "Investment Banking",
+    "Equity Research",
+    "Financial Analysis",
+    "Workflow Optimization",
+    "Excel Modeling",
+    "Python Data Analysis"
   ],
   authors: [{ name: "Salaj Kumbhare" }],
 };
