@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { Project } from '@/data/projects';
 import { Globe, X, ArrowRight, Server, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { Github } from '@/components/BrandIcons';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface PortfolioCardProps {
@@ -78,18 +77,6 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
             <span>View Case Study</span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </button>
-          
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-zinc-500 hover:text-zinc-200 transition-colors"
-              aria-label={`View code for ${project.title}`}
-            >
-              <Github className="h-4 w-4" />
-            </a>
-          )}
         </div>
       </motion.div>
 
@@ -210,17 +197,6 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
               {/* Action Buttons */}
               <div className="mt-8 pt-6 border-t border-zinc-800/80 flex items-center justify-between gap-4">
                 <div className="flex gap-4">
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 px-4 py-2 text-xs font-mono text-zinc-300 hover:text-white transition-all"
-                    >
-                      <Github className="h-4 w-4" />
-                      <span>Explore Source Code</span>
-                    </a>
-                  )}
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}

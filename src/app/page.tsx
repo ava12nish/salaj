@@ -8,11 +8,11 @@ import PortfolioCard from '@/components/PortfolioCard';
 import SkillsAndTimeline from '@/components/SkillsAndTimeline';
 import { projects } from '@/data/projects';
 import { 
-  Terminal, Shield, FileText, Mail, Calendar, 
+  Terminal, Shield, FileText, Mail, Calendar, Phone, 
   ArrowRight, Activity, Cpu, Database, BarChart3, Users, Landmark, 
   Layers, ChevronRight, MessageSquare 
 } from 'lucide-react';
-import { Github, Linkedin } from '@/components/BrandIcons';
+import { Linkedin } from '@/components/BrandIcons';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -412,16 +412,6 @@ export default function Home() {
                 </a>
 
                 <a 
-                  href="https://github.com/SalajPortfolio"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 text-xs text-zinc-450 hover:text-zinc-200 transition-colors font-mono"
-                >
-                  <Github className="h-4 w-4 text-zinc-300" />
-                  <span>github.com/SalajPortfolio</span>
-                </a>
-
-                <a 
                   href="https://linkedin.com/in/salaj-kumbhare"
                   target="_blank"
                   rel="noreferrer"
@@ -429,6 +419,14 @@ export default function Home() {
                 >
                   <Linkedin className="h-4 w-4 text-fintech-cyan" />
                   <span>linkedin.com/in/salaj-kumbhare</span>
+                </a>
+
+                <a 
+                  href="tel:9083042092"
+                  className="flex items-center gap-3 text-xs text-zinc-450 hover:text-zinc-200 transition-colors font-mono"
+                >
+                  <Phone className="h-4 w-4 text-emerald-400" />
+                  <span>(908) 304-2092</span>
                 </a>
               </div>
             </div>

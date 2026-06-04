@@ -12,7 +12,6 @@ export interface Project {
   }[];
   learnings: string[];
   architectureDiagram?: string;
-  githubUrl?: string;
   liveUrl?: string;
 }
 
@@ -59,7 +58,6 @@ export const projects: Project[] = [
 | Analytics Report |                    | Variance Auditer    |
 +------------------+                    +---------------------+
     `,
-    githubUrl: "https://github.com/SalajPortfolio/corporate-finance-pipeline"
   },
   {
     id: "vc-valuation-engine",
@@ -93,7 +91,6 @@ export const projects: Project[] = [
 | & Risk Evaluation |                     | & IRR Forecasts   |
 +-------------------+                     +-------------------+
     `,
-    githubUrl: "https://github.com/SalajPortfolio/vc-valuation-engine"
   },
   {
     id: "institutional-budget-forecaster",
@@ -127,7 +124,6 @@ export const projects: Project[] = [
 | & Event Expenses   |                   | ($25k Event Cap)   |
 +--------------------+                   +--------------------+
     `,
-    githubUrl: "https://github.com/SalajPortfolio/event-budget-forecaster"
   }
 ];
 
