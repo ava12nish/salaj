@@ -19,6 +19,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
   const [isConsoleOpen, setIsConsoleOpen] = useState(false);
   const [copiedText, setCopiedText] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Intersection Observer for navigation
   useEffect(() => {
@@ -441,10 +442,38 @@ export default function Home() {
 
           {/* Inquiry Form */}
           <form 
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              alert('Form submitted successfully. Salaj Kumbhare will review your request.');
-              (e.target as HTMLFormElement).reset();
+              setIsSubmitting(true);
+              
+              const formData = {
+                name: (e.currentTarget.elements.namedItem('name') as HTMLInputElement).value,
+                firm: (e.currentTarget.elements.namedItem('firm') as HTMLInputElement).value,
+                email: (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value,
+                role: (e.currentTarget.elements.namedItem('role') as HTMLSelectElement).value,
+                message: (e.currentTarget.elements.namedItem('message') as HTMLTextAreaElement).value,
+              };
+
+              try {
+                const res = await fetch('/api/contact', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(formData),
+                });
+                
+                const data = await res.json();
+                
+                if (!res.ok) {
+                  throw new Error(data.error || 'Failed to dispatch inquiry.');
+                }
+                
+                alert('Inquiry dispatched successfully to Salaj.');
+                (e.target as HTMLFormElement).reset();
+              } catch (err: any) {
+                alert(`Error: ${err.message}`);
+              } finally {
+                setIsSubmitting(false);
+              }
             }}
             className="md:col-span-7 glass-panel border border-zinc-800 p-6 rounded-xl space-y-4"
           >
@@ -508,10 +537,11 @@ export default function Home() {
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 rounded-lg bg-fintech-blue hover:bg-fintech-blue-glow py-2.5 text-xs font-mono text-white transition-all font-semibold"
+              disabled={isSubmitting}
+              className="w-full flex items-center justify-center gap-2 rounded-lg bg-fintech-blue hover:bg-fintech-blue-glow py-2.5 text-xs font-mono text-white transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <MessageSquare className="h-4 w-4" />
-              <span>Submit Collaboration Request</span>
+              <span>{isSubmitting ? 'Dispatching Inquiry...' : 'Submit Collaboration Request'}</span>
             </button>
           </form>
 
